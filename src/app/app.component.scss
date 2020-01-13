@@ -1,0 +1,18 @@
+.toolbar > a {
+    color: #ffffff;
+    padding: 20px;
+    font-size: 18px;
+
+    &:active{
+        color: #1976d2;
+        background-color: white;
+    }
+    &.active{
+        color: #1976d2;
+        background-color: white;
+    }
+    
+}
+.content{
+    width: 100%;
+}

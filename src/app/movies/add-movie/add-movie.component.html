@@ -1,0 +1,55 @@
+<div>
+    <div class="add-title">
+      <h2 class="primary">Add Movie</h2>
+    </div>
+    <div>
+      <form #addmovieForm=ngForm>
+        <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px">
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field>
+                <input matInput placeholder="Title" [(ngModel)]= "data.title" name="title" #title="ngModel" required>
+                <mat-error *ngIf="title.errors">
+                  Please enter Title
+                </mat-error>
+                
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" [(ngModel)]= "data.release_date" name="release_date" #release_date="ngModel" placeholder="Choose a date" required>
+                <mat-datepicker-toggle matSuffix  [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="release_date.errors">
+                  Please select date  
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="description" [(ngModel)]= "data.description" type="textarea" name="description" >
+                <!-- <mat-error *ngIf="bibliography.errors">
+                  Please enter last name
+                </mat-error> -->
+                
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+      
+          
+        </mat-grid-list>
+   
+        <div class="btn-sec">
+          <button mat-raised-button type="button" class="Discard-btn" (click)="openDialog()">Cancel</button>
+          <button mat-raised-button type="submit" color="primary" class="Update-btn" (click)="onaddmovie()" [disabled]="addmovieForm.invalid">Save</button>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  
